@@ -3,3 +3,4 @@ include:
   - "./nextcloud.yaml"
   - "./postgres.yaml"
   - "./jellyfin.yaml"
+  - "./pinchflat.yaml"
