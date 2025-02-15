@@ -2,3 +2,4 @@ include:
   - "./syncthing.yaml"
   - "./nextcloud.yaml"
   - "./postgres.yaml"
+  - "./jellyfin.yaml"
