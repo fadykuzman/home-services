@@ -16,7 +16,7 @@ services:
           #source: ${MYTUBE}
           #target: /mytube
           #read_only: true
-    restart: 'unless-stopped'
+    restart: 'always'
     # Optional - alternative address used for autodiscovery
     environment:
       - JELLYFIN_PublishedServerUrl=http://example.com
