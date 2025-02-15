@@ -11,7 +11,7 @@ services:
       - ${JELLYFIN_CACHE}:/cache
       - type: bind
         source: ${MOVIES}
-        target: /movies
+        target: /media
           #- type: bind
           #source: ${MYTUBE}
           #target: /mytube
