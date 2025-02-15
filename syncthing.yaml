@@ -1,0 +1,58 @@
+name: syncthing
+services:
+  syncthing:
+    cpu_shares: 90
+    command: []
+    container_name: syncthing
+    deploy:
+      resources:
+        limits:
+          memory: 15768M
+        reservations:
+          memory: "268435456"
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - TZ=Europe/Berlin
+    hostname: syncthing
+    image: linuxserver/syncthing:1.29.2
+    ports:
+      - target: 8384
+        published: "8384"
+        protocol: tcp
+      - target: 22000
+        published: "22000"
+        protocol: tcp
+      - target: 22000
+        published: "22000"
+        protocol: udp
+      - target: 21027
+        published: "21027"
+        protocol: udp
+    restart: always
+    volumes:
+      - type: bind
+        source: ${SYNCTHING_CONFIG}
+        target: /config
+      - type: bind
+        source: ${SYNCTHING_MAIN_FOLDER}
+        target: /DATA
+      - type: bind
+        source: ${SYNCTHING_NOTES_FOLDER}
+        target: /home/tinyhome/Documents/notes/home
+      - type: bind
+        source: ${SYNCTHING_CAMERAS_FOLDER}
+        target: /family-photos
+      - type: bind
+        source: ${SYNCTHING_FAVORITES_FOLDER}
+        target: /media/sync/photos/favorites
+      - type: bind
+        source: ${SYNCTHING_BUNNI_DCIM_FOLDER}
+        target: /bunni/dcim
+      - type: bind
+        source: ${SYNCTHING_BUNNI_VIDEOS_FOLDER}
+        target: /bunni/videos
+      - type: bind
+        source: ${SYNCTHING_BUNNI_DOCS_FOLDER}
+        target: /bunni/documents
+    network_mode: bridge

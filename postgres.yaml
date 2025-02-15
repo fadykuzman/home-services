@@ -1,0 +1,32 @@
+name: postgresql
+services:
+  postgresql:
+    cpu_shares: 90
+    command: []
+    container_name: postgresql
+    deploy:
+      resources:
+        limits:
+          memory: 15768M
+        reservations:
+          memory: "2147483648"
+    environment:
+      - PGID=1000
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - PUID=1000
+      - TZ=Europe/Berlin
+    hostname: postgresql
+    image: postgres:15.3
+    ports:
+      - target: 5432
+        published: "5432"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ${POSTGRES_DATA} 
+        target: /var/lib/postgresql/data
+    networks:
+      - default

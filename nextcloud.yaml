@@ -1,0 +1,27 @@
+name: nextcloud
+services:
+  nextcloud:
+    cpu_shares: 90
+    command: []
+    container_name: nextcloud
+    deploy:
+      resources:
+        limits:
+          memory: 15768M
+        reservations:
+          memory: "536870912"
+    hostname: nextcloud
+    image: nextcloud:29.0.0
+    ports:
+      - target: 80
+        published: "10081"
+        protocol: tcp
+      - target: 443
+        published: "10443"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: bind
+        source: ${NEXTCLOUD_FOLDER}
+        target: /var/www/html
+    network_mode: bridge

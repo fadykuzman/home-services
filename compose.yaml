@@ -1,0 +1,4 @@
+include:
+  - "./syncthing.yaml"
+  - "./nextcloud.yaml"
+  - "./postgres.yaml"
