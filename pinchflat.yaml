@@ -1,6 +1,7 @@
 services:
   pinchflat:
     image: ghcr.io/kieraneglin/pinchflat:latest
+    container_name: pinchflat
     environment:
       # Set the timezone to your local timezone
       - TZ=America/New_York
@@ -9,3 +10,4 @@ services:
     volumes:
       - ${PINCHFLAT_CONFIG}:/config
       - ${PINCHFLAT_DOWNLOADS}:/downloads
+    network_mode: bridge
