@@ -19,6 +19,8 @@ services:
     restart: 'always'
     # Optional - alternative address used for autodiscovery
     environment:
+      - PUID=1000
+      - PGID=1000
       - JELLYFIN_PublishedServerUrl=http://example.com
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:
