@@ -11,3 +11,6 @@ services:
       - ${PINCHFLAT_CONFIG}:/config
       - ${PINCHFLAT_DOWNLOADS}:/downloads
     network_mode: bridge
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
