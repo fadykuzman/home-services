@@ -4,7 +4,7 @@ services:
     container_name: pinchflat
     environment:
       # Set the timezone to your local timezone
-      - TZ=America/New_York
+      - TZ=Europe/Berlin
     ports:
       - '8945:8945'
     volumes:
