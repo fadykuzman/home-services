@@ -12,10 +12,10 @@ services:
       - type: bind
         source: ${MOVIES}
         target: /media
-          #- type: bind
-          #source: ${MYTUBE}
-          #target: /mytube
-          #read_only: true
+      - type: bind
+        source: ${MYTUBE}
+        target: /mytube
+        read_only: true
     restart: 'always'
     # Optional - alternative address used for autodiscovery
     environment:
