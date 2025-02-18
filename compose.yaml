@@ -4,3 +4,4 @@ include:
   - "./postgres.yaml"
   - "./jellyfin.yaml"
   - "./pinchflat.yaml"
+  - "./calibre.yaml"
