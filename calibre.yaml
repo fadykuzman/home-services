@@ -12,4 +12,4 @@ services:
     ports:
       - 8083:8083
     restart: always
-
+    network_mode: bridge
